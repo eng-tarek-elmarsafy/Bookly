@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'widget/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
+  static const String id = '/HomeView';
   const HomeView({super.key});
 
   @override
@@ -11,4 +12,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
