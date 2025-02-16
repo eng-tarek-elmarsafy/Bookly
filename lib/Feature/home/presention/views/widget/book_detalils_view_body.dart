@@ -51,7 +51,7 @@ class BookDetailsInfo extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 6,
+          height: 18,
         ),
         BookRating(),
       ],
