@@ -9,7 +9,7 @@ class CustomBookDetailsImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double widthOfScreen = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: widthOfScreen * .2),
+      padding: EdgeInsets.symmetric(horizontal: widthOfScreen * .25),
       child: const CustomBookImage(),
     );
   }
