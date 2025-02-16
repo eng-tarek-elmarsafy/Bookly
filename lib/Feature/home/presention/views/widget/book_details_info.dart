@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
+import 'book_rating.dart';
 
 class BookDetailsInfo extends StatelessWidget {
   const BookDetailsInfo({super.key});
@@ -30,6 +31,8 @@ class BookDetailsInfo extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: 18),
+        BookRating(),
       ],
     );
   }
