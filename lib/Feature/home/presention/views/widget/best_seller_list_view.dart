@@ -1,4 +1,6 @@
+import 'package:bookly_app/Feature/home/presention/views/book_detalils_view.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'cutstom_best_seller_item.dart';
 
@@ -13,7 +15,11 @@ class BestSellerListView extends StatelessWidget {
       padding: EdgeInsets.zero,
       itemCount: 8,
       itemBuilder: (BuildContext context, int index) {
-        return CutstomBestSellerItem();
+        return CutstomBestSellerItem(
+          onTap: () {
+            GoRouter.of(context).push(BookDetalilsView.id);
+          },
+        );
       },
       separatorBuilder: (BuildContext context, int index) {
         return SizedBox(
