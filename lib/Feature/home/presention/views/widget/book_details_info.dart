@@ -31,8 +31,8 @@ class BookDetailsInfo extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 18),
-        BookRating(),
+        const SizedBox(height: 18),
+        const BookRating(),
       ],
     );
   }
