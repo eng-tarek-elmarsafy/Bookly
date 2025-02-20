@@ -13,7 +13,7 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               backgroundColor: Colors.white,
-              borderRadius:const BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
                 bottomLeft: Radius.circular(16),
               ),
@@ -25,7 +25,7 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               backgroundColor: Color(0xffef8263),
-              borderRadius:const BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topRight: Radius.circular(16),
                 bottomRight: Radius.circular(16),
               ),
@@ -40,5 +40,3 @@ class BooksAction extends StatelessWidget {
     );
   }
 }
-
-
