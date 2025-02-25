@@ -1,9 +1,10 @@
+import 'package:bookly_app/Feature/home/data/models/book_model/book.models.dart';
+import 'package:bookly_app/core/utils/assets.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/utils/assets.dart';
 
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({super.key});
-
+  const CustomBookImage({super.key, this.book});
+  final BookModel? book;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,9 +14,10 @@ class CustomBookImage extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            image: const DecorationImage(
+            image: DecorationImage(
               fit: BoxFit.fill,
-              image: NetworkImage(AssetsData.test),
+              image: NetworkImage(
+                  book?.volumeInfo!.imageLinks!.thumbnail ?? AssetsData.test),
             ),
           ),
         ),

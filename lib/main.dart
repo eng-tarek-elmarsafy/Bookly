@@ -1,5 +1,6 @@
 import 'package:bookly_app/Feature/home/data/repos/home_repo_imp.dart';
 import 'package:bookly_app/Feature/home/presention/manger/best_seller_cubit/best_seller_cubit.dart';
+import 'package:bookly_app/Feature/home/presention/manger/feature_books_cubit/feature_book_cubit.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
@@ -19,11 +20,13 @@ class BooklyApp extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider(
-          create: (context) => BestSellerCubit(getIt.get<HomeRepoImp>()),
+          create: (context) =>
+              BestSellerCubit(getIt.get<HomeRepoImp>())..fetchBestSellerBooks(),
         ),
-        // RepositoryProvider(
-        //   create: (context) => SubjectRepository(),
-        // ),
+        RepositoryProvider(
+          create: (context) =>
+              FeatureBookCubit(getIt.get<HomeRepoImp>())..fetchFeaturedBooks(),
+        ),
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

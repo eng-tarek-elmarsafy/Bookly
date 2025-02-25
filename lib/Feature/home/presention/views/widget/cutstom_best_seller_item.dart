@@ -1,12 +1,13 @@
+import 'package:bookly_app/Feature/home/data/models/book_model/book.models.dart';
 import 'package:flutter/material.dart';
 import '../../../../../constns.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 
 class CutstomBestSellerItem extends StatelessWidget {
   final VoidCallback onTap;
-  const CutstomBestSellerItem({super.key, required this.onTap});
+  final BookModel? book;
+  const CutstomBestSellerItem({super.key, required this.onTap, this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +21,9 @@ class CutstomBestSellerItem extends StatelessWidget {
               aspectRatio: 2.5 / 4,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
+                //image
                 child: Image.network(
-                  AssetsData.test,
+                  book?.volumeInfo!.imageLinks!.smallThumbnail ?? '',
                   fit: BoxFit.fill,
                 ),
               ),
@@ -37,8 +39,9 @@ class CutstomBestSellerItem extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
+                  //title
                   child: Text(
-                    'Harry Poller end the Goblei of Fire',
+                    book?.volumeInfo!.title ?? '',
                     style: Styles.textStyle20.copyWith(
                       fontFamily: kGtSectraFine,
                     ),
@@ -49,8 +52,9 @@ class CutstomBestSellerItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  'J.K. Rowling',
+                //authors
+                Text(
+                  book?.volumeInfo!.authors![0] ?? '',
                   style: Styles.textStyle14,
                 ),
                 const SizedBox(
@@ -58,8 +62,9 @@ class CutstomBestSellerItem extends StatelessWidget {
                 ),
                 Row(
                   children: [
+                    //Price
                     Text(
-                      '19.99 \$',
+                      '${book?.saleInfo!.listPrice?.amount ?? '0.00'} EGP',
                       style: Styles.textStyle20.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
