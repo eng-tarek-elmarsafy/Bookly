@@ -16,6 +16,7 @@ class BestSellerCubit extends Cubit<BestSellerState> {
     result.fold((failure) {
       emit(BestSellerFailur(errMessage: failure.err));
     }, (books) {
+      // emit(BestSellerLoading());
       emit(BestSellerSuccess(books: books));
     });
   }

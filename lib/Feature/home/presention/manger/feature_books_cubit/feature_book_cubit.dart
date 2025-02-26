@@ -17,6 +17,7 @@ class FeatureBookCubit extends Cubit<FeatureBookState> {
     result.fold((failure) {
       emit(FeatureBookFailur(errMessage: failure.err));
     }, (books) {
+      // emit(FeatureBookLoading());
       emit(FeatureBookSuccess(books: books));
     });
   }

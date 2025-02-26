@@ -63,14 +63,23 @@ class CutstomBestSellerItem extends StatelessWidget {
                 Row(
                   children: [
                     //Price
-                    Text(
-                      '${book?.saleInfo!.listPrice?.amount ?? '0.00'} EGP',
-                      style: Styles.textStyle20.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    book?.saleInfo!.listPrice != null
+                        ? Text(
+                            "${book?.saleInfo!.listPrice!.amount} EGP",
+                            style: Styles.textStyle20.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        : Text(
+                            'Free',
+                            style: Styles.textStyle20.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                     const Spacer(),
-                    const BookRating(),
+                    BookRating(
+                      book: book,
+                    ),
                   ],
                 ),
               ],
