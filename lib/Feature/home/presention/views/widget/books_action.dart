@@ -1,8 +1,11 @@
+import 'package:bookly_app/Feature/home/data/models/book_model/book.models.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/widget/custom_button.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
+  final BookModel book;
+  final VoidCallback onPressed;
+  const BooksAction({super.key, required this.book, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +20,9 @@ class BooksAction extends StatelessWidget {
                 topLeft: Radius.circular(16),
                 bottomLeft: Radius.circular(16),
               ),
-              text: '19.99 \$',
+              text: price(),
               textColor: Colors.black,
-              onPressed: () {},
+              onPressed: onPressed,
             ),
           ),
           Expanded(
@@ -32,11 +35,19 @@ class BooksAction extends StatelessWidget {
               text: 'Free preview',
               textSize: 16,
               textColor: Colors.black,
-              onPressed: () {},
+              onPressed: onPressed,
             ),
           ),
         ],
       ),
     );
+  }
+
+  String price() {
+    if (book.saleInfo?.listPrice?.amount == null) {
+      return 'Free';
+    } else {
+      return "${book.saleInfo!.listPrice!.amount} EGP";
+    }
   }
 }

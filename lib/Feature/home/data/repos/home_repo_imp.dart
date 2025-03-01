@@ -12,7 +12,8 @@ class HomeRepoImp implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
     try {
-      var data = await apiService.get(endpoint: 'volumes?q=flutter');
+      var data =
+          await apiService.get(endpoint: 'volumes?q=gnral&maxResults=40');
       List<BookModel> books = [];
 
       for (var book in data['items']) {
@@ -37,6 +38,32 @@ class HomeRepoImp implements HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(endpoint: 'volumes?q=marketing');
+      List<BookModel> books = [];
+
+      for (var book in data['items']) {
+        books.add(BookModel.fromJson(book));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.DioException(e),
+        );
+      }
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchRelatedBooks(
+      {required String type}) async {
+    try {
+      var data = await apiService.get(
+          endpoint: 'volumes?q=general&maxResults=40&printType=$type');
       List<BookModel> books = [];
 
       for (var book in data['items']) {

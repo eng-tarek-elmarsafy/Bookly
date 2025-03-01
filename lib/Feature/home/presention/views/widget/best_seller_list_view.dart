@@ -24,7 +24,10 @@ class BestSellerListView extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return CutstomBestSellerItem(
                 onTap: () {
-                  GoRouter.of(context).push(BookDetalilsView.id);
+                  GoRouter.of(context).push(
+                    BookDetalilsView.id,
+                    extra: state.books[index],
+                  );
                 },
                 book: state.books[index],
               );

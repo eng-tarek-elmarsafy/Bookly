@@ -1,8 +1,10 @@
 import 'package:bookly_app/Feature/home/presention/manger/feature_books_cubit/feature_book_cubit.dart';
+import 'package:bookly_app/Feature/home/presention/views/book_detalils_view.dart';
 import 'package:bookly_app/core/widget/custom_error_widget.dart';
 import 'package:bookly_app/core/widget/custom_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import 'custom_list_view_item.dart';
 
@@ -21,6 +23,10 @@ class FeaturedBoosListView extends StatelessWidget {
               itemCount: state.books.length,
               itemBuilder: (context, index) => CustomBookImage(
                 book: state.books[index],
+                onTap: () {
+                  GoRouter.of(context)
+                      .push(BookDetalilsView.id, extra: state.books[index]);
+                },
               ),
             ),
           );

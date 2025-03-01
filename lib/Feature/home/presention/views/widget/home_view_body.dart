@@ -4,17 +4,17 @@ import 'custom_app_bar.dart';
 import 'featured_list_view_body.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key,});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: const [
+        children: [
           CustomAppBar(),
-          FeaturedBoosListView(),
-          SizedBox(height: 50),
-          CardBestSeller(),
+          const FeaturedBoosListView(),
+          const SizedBox(height: 50),
+          const CardBestSeller(),
         ],
       ),
     );

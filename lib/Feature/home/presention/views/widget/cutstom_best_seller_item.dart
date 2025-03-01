@@ -1,4 +1,5 @@
 import 'package:bookly_app/Feature/home/data/models/book_model/book.models.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import '../../../../../constns.dart';
 import '../../../../../core/utils/styles.dart';
@@ -6,8 +7,8 @@ import 'book_rating.dart';
 
 class CutstomBestSellerItem extends StatelessWidget {
   final VoidCallback onTap;
-  final BookModel? book;
-  const CutstomBestSellerItem({super.key, required this.onTap, this.book});
+  final BookModel book;
+  const CutstomBestSellerItem({super.key, required this.onTap,required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +23,22 @@ class CutstomBestSellerItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 //image
-                child: Image.network(
-                  book?.volumeInfo!.imageLinks!.smallThumbnail ?? '',
-                  fit: BoxFit.fill,
-                ),
+                child: CachedNetworkImage(
+              fit: BoxFit.fill,
+              errorWidget: (context, url, error) {
+                return Center(
+                  child: Icon(
+                    Icons.error,
+                  ),
+                );
+              },
+              progressIndicatorBuilder: (context, url, progress) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+              imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? '',
+            ),
               ),
             ),
           ),
@@ -41,7 +54,7 @@ class CutstomBestSellerItem extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * .5,
                   //title
                   child: Text(
-                    book?.volumeInfo!.title ?? '',
+                    book.volumeInfo!.title ?? '',
                     style: Styles.textStyle20.copyWith(
                       fontFamily: kGtSectraFine,
                     ),
@@ -54,7 +67,7 @@ class CutstomBestSellerItem extends StatelessWidget {
                 ),
                 //authors
                 Text(
-                  book?.volumeInfo!.authors![0] ?? '',
+                  book.volumeInfo?.authors?[0] ?? '',
                   style: Styles.textStyle14,
                 ),
                 const SizedBox(
@@ -63,9 +76,9 @@ class CutstomBestSellerItem extends StatelessWidget {
                 Row(
                   children: [
                     //Price
-                    book?.saleInfo!.listPrice != null
+                    book.saleInfo!.listPrice != null
                         ? Text(
-                            "${book?.saleInfo!.listPrice!.amount} EGP",
+                            "${book.saleInfo!.listPrice!.amount} EGP",
                             style: Styles.textStyle20.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
