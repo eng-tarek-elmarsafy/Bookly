@@ -1,8 +1,8 @@
 import 'package:bookly_app/Feature/home/data/models/book_model/book.models.dart';
 import 'package:bookly_app/Feature/home/data/repos/home_repo_imp.dart';
-import 'package:bookly_app/Feature/home/presention/manger/related_books_cubit/related_books_cubit.dart';
-import 'package:bookly_app/Feature/home/presention/views/book_detalils_view.dart';
-import 'package:bookly_app/Feature/home/presention/views/home_view.dart';
+import 'package:bookly_app/Feature/home/presentation/manager/related_books_cubit/related_books_cubit.dart';
+import 'package:bookly_app/Feature/home/presentation/views/book_details_view.dart';
+import 'package:bookly_app/Feature/home/presentation/views/home_view.dart';
 import 'package:bookly_app/Feature/search/data/repo/search_repo_imp.dart';
 import 'package:bookly_app/Feature/search/presention/manger/cubit/search_cubit.dart';
 import 'package:bookly_app/Feature/search/presention/views/search_view.dart';

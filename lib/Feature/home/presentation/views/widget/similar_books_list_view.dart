@@ -1,36 +1,37 @@
-import 'package:bookly_app/Feature/home/presention/manger/feature_books_cubit/feature_book_cubit.dart';
-import 'package:bookly_app/Feature/home/presention/views/book_detalils_view.dart';
+import 'package:bookly_app/Feature/home/presentation/manager/related_books_cubit/related_books_cubit.dart';
+import 'package:bookly_app/Feature/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/core/widget/custom_error_widget.dart';
 import 'package:bookly_app/core/widget/custom_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 import 'custom_list_view_item.dart';
 
-class FeaturedBoosListView extends StatelessWidget {
-  const FeaturedBoosListView({super.key});
+class SimilarBooksListView extends StatelessWidget {
+  const SimilarBooksListView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FeatureBookCubit, FeatureBookState>(
+    return BlocBuilder<RelatedBooksCubit, RelatedBooksState>(
       builder: (context, state) {
-        if (state is FeatureBookSuccess) {
+        if (state is RelatedBooksSuccess) {
           return SizedBox(
-            height: MediaQuery.of(context).size.height * .28,
+            height: MediaQuery.of(context).size.height * .15,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: state.books.length,
+              itemCount: 10,
               itemBuilder: (context, index) => CustomBookImage(
-                book: state.books[index],
                 onTap: () {
                   GoRouter.of(context)
                       .push(BookDetalilsView.id, extra: state.books[index]);
                 },
+                book: state.books[index],
               ),
             ),
           );
-        } else if (state is FeatureBookFailur) {
+        } else if (state is RelatedBooksFailur) {
           return CustomErrorWidget(errorMessage: state.errMessage);
         } else {
           return CustomLoadingBookImage();

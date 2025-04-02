@@ -1,6 +1,6 @@
 import 'package:bookly_app/Feature/home/data/repos/home_repo_imp.dart';
-import 'package:bookly_app/Feature/home/presention/manger/best_seller_cubit/best_seller_cubit.dart';
-import 'package:bookly_app/Feature/home/presention/manger/feature_books_cubit/feature_book_cubit.dart';
+import 'package:bookly_app/Feature/home/presentation/manager/best_seller_cubit/best_seller_cubit.dart';
+import 'package:bookly_app/Feature/home/presentation/manager/feature_books_cubit/feature_book_cubit.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,6 @@ class BooklyApp extends StatelessWidget {
             textTheme:
                 GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme)),
         debugShowCheckedModeBanner: false,
-        // home: SplashView(),
       ),
     );
   }

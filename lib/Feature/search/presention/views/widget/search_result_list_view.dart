@@ -1,4 +1,4 @@
-import 'package:bookly_app/Feature/home/presention/views/book_detalils_view.dart';
+import 'package:bookly_app/Feature/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/Feature/search/presention/manger/cubit/search_cubit.dart';
 import 'package:bookly_app/core/widget/custom_best_seller_loading.dart';
 import 'package:bookly_app/core/widget/custom_error_widget.dart';
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../home/presention/views/widget/cutstom_best_seller_item.dart';
+import '../../../../home/presentation/views/widget/cutstom_best_seller_item.dart';
 
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({

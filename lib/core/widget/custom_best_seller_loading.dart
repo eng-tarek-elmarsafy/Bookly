@@ -3,7 +3,7 @@ import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../../constns.dart';
+import '../../constants.dart';
 
 class CustomBestSellerLoading extends StatelessWidget {
   const CustomBestSellerLoading({super.key});
