@@ -29,7 +29,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
         await _apiService.get(endpoint: 'volumes?q=sport&Sorting=newest');
 
     List<BookEntity> books = _getBooksList(data);
-
+    saveBooksData(books, kNewsBox);
     return books;
   }
 
