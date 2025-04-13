@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/book_entity.dart';
 import '../../../domain/ues_case/fetch_newset_books_use_case.dart';
