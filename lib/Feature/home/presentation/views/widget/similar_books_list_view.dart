@@ -1,9 +1,11 @@
+import 'package:bookly_app/Feature/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_list_view_item.dart';
 
 class SimilarBooksListView extends StatelessWidget {
-  const SimilarBooksListView({super.key});
+  final BookEntity book;
+  const SimilarBooksListView({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class SimilarBooksListView extends StatelessWidget {
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 10,
-        itemBuilder: (context, index) => CustomBookImage(),
+        itemBuilder: (context, index) => CustomBookImage(book: book,),
       ),
     );
   }

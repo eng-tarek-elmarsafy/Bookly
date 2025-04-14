@@ -1,10 +1,12 @@
+import 'package:bookly_app/Feature/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
+  final BookEntity? book;
+  const BookRating({super.key, this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class BookRating extends StatelessWidget {
           width: 6.3,
         ),
         Text(
-          '8.4',
+          book?.rating ?? '',
           style: Styles.textStyle16.copyWith(
             fontWeight: FontWeight.w600,
           ),
@@ -31,7 +33,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text(
-            '(2990)',
+            '(90094)',
             style: Styles.textStyle14,
           ),
         ),

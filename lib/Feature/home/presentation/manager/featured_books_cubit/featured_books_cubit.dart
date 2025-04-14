@@ -6,12 +6,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit(this.featuredBooksUseCase) : super(FeaturedBooksInitial());
-  final FetchFeaturedBooksUseCase featuredBooksUseCase;
+  FeaturedBooksCubit(this._featuredBooksUseCase) : super(FeaturedBooksInitial());
+  final FetchFeaturedBooksUseCase _featuredBooksUseCase;
 
   Future<void> featuredBooks() async {
     emit(FeaturedBooksLoading());
-    var resuilt = await featuredBooksUseCase.call();
+    var resuilt = await _featuredBooksUseCase.call();
 
     resuilt.fold(
       (failure) => emit(

@@ -12,9 +12,12 @@ class SearchResultListView extends StatelessWidget {
     return Expanded(
       child: ListView.separated(
         itemCount: 20,
-        itemBuilder: (context, index) => CutstomBestSellerItem(onTap: () {
-          GoRouter.of(context).push(BookDetalilsView.id);
-        }),
+        itemBuilder: (context, index) => CutstomBestSellerItem(
+          onTap: () {
+            GoRouter.of(context).push(BookDetalilsView.id);
+          },
+          book: null,
+        ),
         separatorBuilder: (BuildContext context, int index) => SizedBox(
           height: 10,
         ),

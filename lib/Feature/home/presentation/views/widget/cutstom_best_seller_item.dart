@@ -1,12 +1,14 @@
+import 'package:bookly_app/Feature/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 import '../../../../../constns.dart';
-import '../../../../../core/utils/assets.dart';
 import '../../../../../core/utils/styles.dart';
 import 'book_rating.dart';
 
 class CutstomBestSellerItem extends StatelessWidget {
+  final BookEntity? book;
   final VoidCallback onTap;
-  const CutstomBestSellerItem({super.key, required this.onTap});
+  const CutstomBestSellerItem(
+      {super.key, required this.onTap, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class CutstomBestSellerItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.network(
-                  AssetsData.test,
+                  book!.image, // image
                   fit: BoxFit.fill,
                 ),
               ),
@@ -38,7 +40,7 @@ class CutstomBestSellerItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
                   child: Text(
-                    'Harry Poller end the Goblei of Fire',
+                    book!.title, //title
                     style: Styles.textStyle20.copyWith(
                       fontFamily: kGtSectraFine,
                     ),
@@ -49,8 +51,8 @@ class CutstomBestSellerItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  'J.K. Rowling',
+                 Text(
+                  book!.authorName,
                   style: Styles.textStyle14,
                 ),
                 const SizedBox(
@@ -59,7 +61,7 @@ class CutstomBestSellerItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '19.99 \$',
+                      '${book!.price} \$',
                       style: Styles.textStyle20.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
